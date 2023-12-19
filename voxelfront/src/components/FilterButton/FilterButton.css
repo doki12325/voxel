@@ -1,0 +1,98 @@
+.filter-main {
+  position: fixed;
+  z-index: 1000;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  transition: all 0.2s ease;
+}
+
+.filter-toggle {
+  height: 5rem;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  cursor: pointer;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-option {
+  font-size: 1.5rem;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+.filter-option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filter-group-main {
+  min-height: 100%;
+  max-height: 200%;
+  width: 200%;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: calc(-200% - 2.2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.filter-group-main::-webkit-scrollbar {
+  opacity: 0;
+}
+.filter-check-button {
+  display: block;
+}
+
+.filter-close-button {
+  display: none;
+  cursor: pointer;
+}
+
+.filter-option:hover > .filter-check-button {
+  display: none;
+}
+.filter-option:hover > .filter-close-button {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-main {
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 8rem;
+    max-height: 15rem;
+  }
+  .filter-toggle {
+    height: 5rem;
+  }
+  .filter-option {
+    font-size: 1rem;
+  }
+  .filter-group-main {
+    width: 120%;
+    left: calc(-120% - 2.2rem);
+  }
+}

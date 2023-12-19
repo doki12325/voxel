@@ -1,0 +1,107 @@
+.popup-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-main {
+  height: 25rem;
+  width: 40rem;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: white;
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+}
+.popup-image {
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  top: 0;
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.popup-text-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  z-index: 50;
+}
+
+.popup-name {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.popup-subtext {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+.popup-smalltext {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 1rem;
+  max-width: 23rem;
+}
+.popup-close-button {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 100;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-main {
+    height: 25rem;
+    width: 20rem;
+    padding: 1rem;
+  }
+  .popup-name {
+    font-size: 2rem;
+  }
+  .popup-subtext {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    max-width: 17rem;
+  }
+  .popup-smalltext {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+  .popup-close-button {
+    height: 2rem;
+    width: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
