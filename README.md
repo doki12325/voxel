@@ -2,6 +2,7 @@
 
 Welcome to the Startup Directory Web App, a full-stack project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. This web application aims to showcase various startups, providing users with an interactive platform to explore and filter startup data. The dataset utilized for this project is available in a .csv file format and contains valuable attributes for each startup, including Company Name, City, Starting Year, Founders, Industry, No. of Employees, and Funding Amount.
 
+## Live Preview -- [Startup Zone](https://startup-zone.onrender.com/)
 ## Table of Contents
 
 1. [Features](#features)
