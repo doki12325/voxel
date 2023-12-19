@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { FilterHook } from "./FilterContext";
-import FilterButton from "./components/FilterButton/FilterButton";
-import Card from "./components/card/Card";
-import CreateForm from "./components/createForm/createForm";
-import Navbar from "./components/navbar/Navbar";
+import { FilterHook } from "./FilterContext.jsx";
+import FilterButton from "./components/FilterButton/FilterButton.jsx";
+import Card from "./components/card/Card.jsx";
+import CreateForm from "./components/createForm/createForm.jsx";
+import Navbar from "./components/navbar/Navbar.jsx";
 import { ImSpinner8 } from "react-icons/im";
 
 function App() {
