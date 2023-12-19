@@ -8,12 +8,7 @@ dotenv.config();
 const connectDB = require("./config/DBConfig");
 connectDB();
 
-app.use(
-  cors({
-    credentials: true,
-    origin: ["https://startup-zone.onrender.com/"],
-  })
-);
+app.use(cors());
 
 const startupRoutes = require("./routes/startupRoutes");
 
