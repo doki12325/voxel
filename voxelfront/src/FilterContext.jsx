@@ -80,6 +80,7 @@ function FilterContext({ children }) {
         filterOptions,
         pageEnd,
         setPageEnd,
+        ENDPOINT,
       }}
     >
       {children}

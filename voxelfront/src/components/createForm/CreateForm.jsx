@@ -369,14 +369,16 @@ function InputOptions(props) {
 }
 
 function handleSubmit(startupData, ENDPOINT) {
+  console.log(ENDPOINT);
   const requestOptions = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(startupData),
   };
   fetch(`${ENDPOINT}/api/newstartup`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       alert("Startup Created Successfully!");
       window.location.reload();
     });
