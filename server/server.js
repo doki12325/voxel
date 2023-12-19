@@ -11,7 +11,7 @@ connectDB();
 app.use(
   cors({
     credentials: true,
-    origin: ["0.0.0.0/0"],
+    origin: ["https://startup-zone.onrender.com/"],
   })
 );
 

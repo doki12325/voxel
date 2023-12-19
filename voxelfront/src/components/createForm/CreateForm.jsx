@@ -24,7 +24,7 @@ function CreateForm(props) {
     InvestorsName: false,
     SubVertical: false,
   });
-  const { filterOptions } = FilterHook();
+  const { filterOptions, ENDPOINT } = FilterHook();
   const isButtonDisabled = () => {
     return (
       startupData.StartupName == "" ||
@@ -73,7 +73,11 @@ function CreateForm(props) {
           <div className="create-input-wrapper list">
             <label className="create-label">Domain</label>
             <InputOptions
-              options={filterOptions[0].options}
+              options={
+                filterOptions[
+                  filterOptions.findIndex((filter) => filter.name == "Domain")
+                ].options
+              }
               startupData={startupData}
               setStartupData={setStartupData}
               firstTouch={firstTouch}
@@ -84,7 +88,11 @@ function CreateForm(props) {
           <div className="create-input-wrapper list">
             <label className="create-label">City</label>
             <InputOptions
-              options={filterOptions[1].options}
+              options={
+                filterOptions[
+                  filterOptions.findIndex((filter) => filter.name == "City")
+                ].options
+              }
               startupData={startupData}
               setStartupData={setStartupData}
               firstTouch={firstTouch}
@@ -153,7 +161,13 @@ function CreateForm(props) {
           <div className="create-input-wrapper list">
             <label className="create-label">Investment Type</label>
             <InputOptions
-              options={filterOptions[2].options}
+              options={
+                filterOptions[
+                  filterOptions.findIndex(
+                    (filter) => filter.name == "InvestmentType"
+                  )
+                ].options
+              }
               startupData={startupData}
               setStartupData={setStartupData}
               firstTouch={firstTouch}
@@ -235,7 +249,7 @@ function CreateForm(props) {
               disabled={isButtonDisabled()}
               onClick={(e) => {
                 e.preventDefault();
-                handleSubmit(startupData);
+                handleSubmit(startupData, ENDPOINT);
               }}
             >
               Create
@@ -354,8 +368,7 @@ function InputOptions(props) {
   );
 }
 
-function handleSubmit(startupData) {
-  const { ENDPOINT } = FilterHook();
+function handleSubmit(startupData, ENDPOINT) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -364,7 +377,6 @@ function handleSubmit(startupData) {
   fetch(`${ENDPOINT}/api/newstartup`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       alert("Startup Created Successfully!");
       window.location.reload();
     });
