@@ -355,12 +355,13 @@ function InputOptions(props) {
 }
 
 function handleSubmit(startupData) {
+  const { ENDPOINT } = FilterHook();
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(startupData),
   };
-  fetch("http://localhost:8000/api/newstartup", requestOptions)
+  fetch(`${ENDPOINT}/api/newstartup`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);

@@ -12,11 +12,10 @@ function FilterContext({ children }) {
   const [loading, setLoading] = useState(true);
   const [filterOptions, setFilterOptions] = useState([]);
   const [pageEnd, setPageEnd] = useState(false);
+  const ENDPOINT = "https://startup-directory-tugs.onrender.com";
   useEffect(() => {
     filters.forEach(async (filter) => {
-      await fetch(
-        `http://localhost:8000/api/uniquefilters?filter=${filter.name}`
-      )
+      await fetch(`${ENDPOINT}/api/uniquefilters?filter=${filter.name}`)
         .then((res) => res.json())
         .then((data) => {
           data.shift();
@@ -29,7 +28,7 @@ function FilterContext({ children }) {
   }, []);
   useEffect(() => {
     setLoading(() => true);
-    fetch(`http://localhost:8000/api/startups?page=${page}`, {
+    fetch(`${ENDPOINT}/api/startups?page=${page}`, {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -49,7 +48,7 @@ function FilterContext({ children }) {
   }, [page]);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8000/api/startups?page=${page}`, {
+    fetch(`${ENDPOINT}/api/startups?page=${page}`, {
       method: "post",
       headers: {
         Accept: "application/json",
